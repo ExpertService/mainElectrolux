@@ -24,11 +24,11 @@ body
 		content: ''
 		display: block
 		position: fixed
-		width: 0
+		width: 0px
 		top: 0
 		height: 100vh
 		left: -$menu_width
-		transition: width 0.5s linear, left 0.5s linear 0.5s
+		transition: left 0.5s linear, width 0.5s linear 0.5s
 		background: url('../img/bg_menu.jpg')
 		background-position: center
 		background-repeat: no-repeat
@@ -79,14 +79,13 @@ body
 		transition: all 0s
 
 body.menu_open
-	&::before,
-	&::after
+	&::before
 		width: calc((( 100vw - 1366px - 4rem ) / 2 ) + 430px )
 		left: 0
-		transition: left 0.5s linear, width 0.5s linear 0.5s
+		transition: width 0.5s linear, left 0.5s linear 0.5s 
 
 body.menu_const_width
-	&::before,
+	&::before
 		width: $menu_width
 
 .container
@@ -114,14 +113,14 @@ body.menu_const_width
 		background-color: #000000
 		z-index: -1
 		opacity: 0
-		transition: opacity 0.5s linear 0.5s, z-index 0s linear 1s
+		transition: opacity 0.25s linear 0.25s, z-index 0s linear 0.5s
 
 body.menu_open .menu_wrapper
 	width: calc((( 100vw - 1366px - 4rem ) / 2 ) + 430px )
 	&::before
 		z-index: $menu_zindex - 1
 		opacity: 0.5
-		transition: opacity 0.5s linear
+		transition: opacity 1.5s linear 1s, z-index 0s linear 1s
 
 body.menu_const_width .menu_wrapper
 	width: $menu_width
@@ -138,7 +137,7 @@ body.menu_const_width .menu_wrapper
 	margin-left: auto
 	overflow: hidden
 	right: -$menu_width
-	transition: left 1s linear 0.5s
+	transition: right 0.5s linear 0.5s
 	z-index: $menu_zindex
 	&::before
 		content: ''
@@ -186,8 +185,8 @@ body.menu_const_width .menu_wrapper
 
 body.menu_open .menu
 	width: $menu_width
-	left: 0
-	transition: left 1s ease-in-out 1s
+	right: 0
+	transition: right 0.5s linear 0.5s
 	&::before
 		opacity: 1
 		transition: opacity 0.5s linear 1s

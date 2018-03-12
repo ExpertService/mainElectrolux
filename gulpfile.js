@@ -42,16 +42,16 @@ var paths = {
 	},
 	lib: {
 		js: {
-			src: ['dev/libs/js/*.js',
-				'node_modules/jquery/dist/jquery.min.js',
+			src: ['node_modules/jquery/dist/jquery.min.js',
+				'node_modules/jquery.scrollbar/jquery.scrollbar.min.js',
 				'node_modules/air-datepicker/dist/js/datepicker.min.js',
-				'node_modules/jquery.scrollbar/jquery.scrollbar.min.js'],
+				'dev/libs/js/*.js'],
 			dest: './app/js/'
 		},
 		css: {
-			src: ['dev/libs/css/*.css',
+			src: ['node_modules/jquery.scrollbar/jquery.scrollbar.css',
 				'node_modules/air-datepicker/dist/css/datepicker.min.css',
-				'node_modules/jquery.scrollbar/jquery.scrollbar.css'],
+				'dev/libs/css/*.css'],
 			dest: './app/css/'
 		}
 	},
