@@ -5,7 +5,8 @@ var gulp 			= require('gulp'),
 	autoprefixer 	= require('gulp-autoprefixer'),
 	spritesmith 	= require("gulp.spritesmith"),
 	browserSync  	= require('browser-sync').create(),
-	devip 			= require('dev-ip');
+	devip 			= require('dev-ip'),
+	tinypng			= require('gulp-tinypng-nokey');
 
 var paths = {
   app: {
