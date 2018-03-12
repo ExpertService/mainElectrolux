@@ -1,0 +1,165 @@
+// SASS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home
+//   width: $icon-home-width
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites
+$archive-name: 'archive'
+$archive-x: 0px
+$archive-y: 93px
+$archive-offset-x: 0px
+$archive-offset-y: -93px
+$archive-width: 25px
+$archive-height: 27px
+$archive-total-width: 31px
+$archive-total-height: 208px
+$archive-image: 'icons.png'
+$archive: (0px, 93px, 0px, -93px, 25px, 27px, 31px, 208px, 'icons.png', 'archive', )
+$button-name: 'button'
+$button-x: 0px
+$button-y: 26px
+$button-offset-x: 0px
+$button-offset-y: -26px
+$button-width: 24px
+$button-height: 21px
+$button-total-width: 31px
+$button-total-height: 208px
+$button-image: 'icons.png'
+$button: (0px, 26px, 0px, -26px, 24px, 21px, 31px, 208px, 'icons.png', 'button', )
+$cabinet-name: 'cabinet'
+$cabinet-x: 0px
+$cabinet-y: 177px
+$cabinet-offset-x: 0px
+$cabinet-offset-y: -177px
+$cabinet-width: 19px
+$cabinet-height: 31px
+$cabinet-total-width: 31px
+$cabinet-total-height: 208px
+$cabinet-image: 'icons.png'
+$cabinet: (0px, 177px, 0px, -177px, 19px, 31px, 31px, 208px, 'icons.png', 'cabinet', )
+$calendar-name: 'calendar'
+$calendar-x: 0px
+$calendar-y: 68px
+$calendar-offset-x: 0px
+$calendar-offset-y: -68px
+$calendar-width: 25px
+$calendar-height: 25px
+$calendar-total-width: 31px
+$calendar-total-height: 208px
+$calendar-image: 'icons.png'
+$calendar: (0px, 68px, 0px, -68px, 25px, 25px, 31px, 208px, 'icons.png', 'calendar', )
+$logout-name: 'logout'
+$logout-x: 0px
+$logout-y: 47px
+$logout-offset-x: 0px
+$logout-offset-y: -47px
+$logout-width: 28px
+$logout-height: 21px
+$logout-total-width: 31px
+$logout-total-height: 208px
+$logout-image: 'icons.png'
+$logout: (0px, 47px, 0px, -47px, 28px, 21px, 31px, 208px, 'icons.png', 'logout', )
+$mark-check-name: 'mark_check'
+$mark-check-x: 0px
+$mark-check-y: 0px
+$mark-check-offset-x: 0px
+$mark-check-offset-y: 0px
+$mark-check-width: 14px
+$mark-check-height: 13px
+$mark-check-total-width: 31px
+$mark-check-total-height: 208px
+$mark-check-image: 'icons.png'
+$mark-check: (0px, 0px, 0px, 0px, 14px, 13px, 31px, 208px, 'icons.png', 'mark_check', )
+$mark-cross-name: 'mark_cross'
+$mark-cross-x: 0px
+$mark-cross-y: 13px
+$mark-cross-offset-x: 0px
+$mark-cross-offset-y: -13px
+$mark-cross-width: 13px
+$mark-cross-height: 13px
+$mark-cross-total-width: 31px
+$mark-cross-total-height: 208px
+$mark-cross-image: 'icons.png'
+$mark-cross: (0px, 13px, 0px, -13px, 13px, 13px, 31px, 208px, 'icons.png', 'mark_cross', )
+$news-name: 'news'
+$news-x: 0px
+$news-y: 148px
+$news-offset-x: 0px
+$news-offset-y: -148px
+$news-width: 31px
+$news-height: 29px
+$news-total-width: 31px
+$news-total-height: 208px
+$news-image: 'icons.png'
+$news: (0px, 148px, 0px, -148px, 31px, 29px, 31px, 208px, 'icons.png', 'news', )
+$teach-name: 'teach'
+$teach-x: 0px
+$teach-y: 120px
+$teach-offset-x: 0px
+$teach-offset-y: -120px
+$teach-width: 29px
+$teach-height: 28px
+$teach-total-width: 31px
+$teach-total-height: 208px
+$teach-image: 'icons.png'
+$teach: (0px, 120px, 0px, -120px, 29px, 28px, 31px, 208px, 'icons.png', 'teach', )
+$spritesheet-width: 31px
+$spritesheet-height: 208px
+$spritesheet-image: 'icons.png'
+$spritesheet-sprites: ($archive, $button, $cabinet, $calendar, $logout, $mark-check, $mark-cross, $news, $teach, )
+$spritesheet: (31px, 208px, 'icons.png', $spritesheet-sprites, )
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home
+//   @include sprite-width($icon-home)
+//
+// .icon-email
+//   @include sprite($icon-email)
+//
+// Example usage in HTML:
+//   `display: block` sprite:
+//   <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//   // CSS
+//   .icon {
+//     display: inline-block;
+//   }
+//
+//   // HTML
+//   <i class="icon icon-home"></i>
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SASS
+//
+// @include sprites($spritesheet-sprites)
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)

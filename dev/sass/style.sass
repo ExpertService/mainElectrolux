@@ -1,0 +1,230 @@
+@import "bourbon"
+@import "vars.sass"
+@import "sprite.sass"
+
+//Load Libs SASS
+//@import "app/libs/animate/animate.sass"
+
+//Load normalize.css
+@import "normalize"
+
+html
+	font-size: 14px
+
+body
+	min-width: 375px
+	min-height: 100%
+	background-color: #f2f2f2
+	font-size: 100%
+	font-family: $ff_light
+	color: $color_main
+	overflow-x: hidden
+	-webkit-overflow-scrolling: touch
+	&::before		
+		content: ''
+		display: block
+		position: fixed
+		width: 0
+		top: 0
+		height: 100vh
+		left: -$menu_width
+		transition: width 0.5s linear, left 0.5s linear 0.5s
+		background: url('../img/bg_menu.jpg')
+		background-position: center
+		background-repeat: no-repeat
+		box-shadow: inset -30px 0px 45px -10px rgba(0, 0, 0, 0.3)
+
+.card-deck
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+
+.card
+	display: flex
+	flex-direction: column
+	flex-grow: 0
+	flex-shrink: 1
+	flex-basis: auto
+	background-color: $color_white
+	transition: box-shadow 0.5s linear 
+	&:hover
+		box-shadow: 0 0 2rem 0.25rem rgba(0, 0, 0, 0.3)
+		transition: box-shadow 0s
+
+.card-deck .card:not(:last-child)
+	margin-right: 2rem
+
+.card-block
+
+.button
+	display: flex
+	align-items: center
+	justify-content: center
+	height: 3.25rem
+	max-width: 14.25rem
+	padding: 0 3rem
+	margin: 0 auto
+	cursor: pointer
+	background-color: $color_accent
+	border-radius: 0.25rem
+	box-shadow: none
+	transition: box-shadow 0.3s linear 0s, color 0.5s linear 0.3s
+	&:hover
+		background-color: $color_accent_hover
+		box-shadow: 0.3rem 0.3rem 0.5rem rgba(0, 0, 0, 0.5)
+		transition: all 0s
+	&:active
+		background-color: $color_accent_hover
+		box-shadow: inset 0 0 1rem 0.5rem rgba(255, 255, 255, 0.6)
+		transition: all 0s
+
+body.menu_open
+	&::before,
+	&::after
+		width: calc((( 100vw - 1366px - 4rem ) / 2 ) + 430px )
+		left: 0
+		transition: left 0.5s linear, width 0.5s linear 0.5s
+
+body.menu_const_width
+	&::before,
+		width: $menu_width
+
+.container
+	max-width: $content_max_width
+	padding: 0 2rem
+	margin: 0 auto
+	position: relative
+	left: 0px
+	transition: left 0.5s linear
+
+.menu_wrapper
+	display: block
+	position: absolute
+	width: 0
+	top: 0
+	bottom: 0
+	&::before
+		content: ''
+		display: block
+		position: fixed
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		background-color: #000000
+		z-index: -1
+		opacity: 0
+		transition: opacity 0.5s linear 0.5s, z-index 0s linear 1s
+
+body.menu_open .menu_wrapper
+	width: calc((( 100vw - 1366px - 4rem ) / 2 ) + 430px )
+	&::before
+		z-index: $menu_zindex - 1
+		opacity: 0.5
+		transition: opacity 0.5s linear
+
+body.menu_const_width .menu_wrapper
+	width: $menu_width
+
+.menu
+	display: block
+	position: relative
+	top: 0px
+	bottom: 0px
+	width: 0px
+	padding: 0
+	padding-top: 7rem
+	margin: 0
+	margin-left: auto
+	overflow: hidden
+	right: -$menu_width
+	transition: left 1s linear 0.5s
+	z-index: $menu_zindex
+	&::before
+		content: ''
+		display: block
+		position: relative
+		left: 10rem
+		top: -5rem
+		width: 100%
+		height: 3rem
+		opacity: 0
+		background-image: url(../img/electrolux_menu_logo.png)
+		background-repeat: no-repeat
+	a
+		display: block
+		position: relative
+		margin: 0
+		padding: 0
+		left: $menu_width
+		margin-left: 2rem
+		padding-left: 1.5em
+		line-height: 1.5
+		font-family: $ff_bold
+		font-size: 1.7rem
+		text-decoration: none
+		color: $color_white
+		&:hover,
+		&:active
+			color: $color_accent
+		&::before
+			content: ''
+			display: block
+			position: absolute
+			left: 0
+			background-image: url(../img/icons.png)
+			background-repeat: no-repeat
+		&::after
+			content: ''
+			display: inline-block
+			position: relative
+			vertical-align: middle
+			width: 100%
+			left: 1em
+			margin-right: -100%
+			border-top: 2px dashed $color_white
+
+body.menu_open .menu
+	width: $menu_width
+	left: 0
+	transition: left 1s ease-in-out 1s
+	&::before
+		opacity: 1
+		transition: opacity 0.5s linear 1s
+	a
+		left: 0
+		transition: left 0.5s linear 1s
+
+body.menu_open .menu .fx_left05_15
+	transition: left 0.5s linear 1.5s
+
+body.menu_open .menu .fx_left05_20
+	transition: left 0.5s linear 2.0s
+
+body.menu_open .menu .fx_left05_25
+	transition: left 0.5s linear 2.5s
+
+.icon_archive::before
+	width: $archive-width
+	height: $archive-height
+	background-position: $archive-offset-x $archive-offset-y
+
+.icon_cabinet::before
+	width: $cabinet-width
+	height: $cabinet-height
+	background-position: $cabinet-offset-x $cabinet-offset-y
+
+.icon_news::before
+	width: $news-width
+	height: $news-height
+	background-position: $news-offset-x $news-offset-y
+
+.icon_teach::before
+	width: $teach-width
+	height: $teach-height
+	background-position: $teach-offset-x $teach-offset-y
+
+@import "./layout/_header"
+@import "./pages/_training"
+@import "./layout/_footer"
+@import "media.sass"

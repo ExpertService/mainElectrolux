@@ -1,0 +1,48 @@
+@import "bourbon"
+@import "vars.sass"
+
+//air-datepiker
+.datepicker--content,
+.datepicker--pointer,
+.datepicker--nav
+	background-color: $color_main
+	box-sizing: border-box
+
+.datepicker--cells
+	background-color: $color_white
+
+.datepicker--nav-action svg path
+	stroke: $color_white
+
+.datepicker--nav-title,
+.datepicker--nav-title i
+	color: $color_white
+
+.datepicker--nav-title,
+.datepicker--nav-action
+	&:hover
+		background-color: $color-accent
+
+.datepicker--content .datepicker--cell-day.-selected-
+	background-color: $color-accent
+
+.datepicker--content .datepicker--cell-day.-current-
+	color: $color-accent
+	&.-selected-
+		color: $color-white
+
+.datepicker--day-name
+	color: $color_white
+
+//jquery.scrollbar
+.scrollbar-inner > .scroll-element .scroll-element_track
+	background-color: #d2d2d2
+
+.scrollbar-inner > .scroll-element .scroll-bar
+	background-color: #222222
+
+.scrollbar-inner > .scroll-element:hover .scroll-bar
+	background-color: #828282
+
+.scrollbar-inner > .scroll-element.scroll-draggable .scroll-bar
+	background-color: #828282

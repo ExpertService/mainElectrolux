@@ -1,0 +1,35 @@
+-
+	var mainMenu = [
+		{'text': 'Личный кабинет', 'url': '#', 'modifier': 'icon_cabinet'},
+		{'text': 'Новости', 'url': '#', 'modifier': 'icon_news fx_left05_15'},
+		{'text': 'Обучение', 'url': '#', 'modifier': 'icon_teach fx_left05_20'},
+		{'text': 'Архив', 'url': '#', 'modifier': 'icon_archive fx_left05_25'},]
+
+doctype html
+html(lang="ru-Ru")
+	head
+		meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		title Electrolux
+		meta(name="keywords", content="ключевые, слова документа")
+		meta(name="description", content="Краткое описание документа")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href="./css/style.css")
+		link(rel="stylesheet", href="./css/fonts.css")
+		link(rel="stylesheet", href="./css/libs.min.css")
+		link(rel="stylesheet", href="./css/libs.modify.css")
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<![endif]-->
+	body
+		.menu_wrapper
+			nav.menu
+				each item in mainMenu
+					a(href=item.url, class=item.modifier) #{item.text}
+		.container
+			include layout/_header.pug
+			include pages/_training.pug
+			include layout/_footer.pug
+		script(type='text/javascript', src='./js/libs.min.js')
+		script(type='text/javascript', src='./js/script.js')

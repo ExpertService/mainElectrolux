@@ -1,0 +1,84 @@
+@import "../vars.sass"
+
+$burger_width: 2px
+$burger_color: #1b2551
+$burger_checked_color: #ffffff
+
+#toggle_menu
+	display: block
+	position: relative
+	height: 2.5rem
+	width: 2.5rem
+	padding: 0
+	margin: 0
+	border:  $burger_width solid $burger_color
+	border-radius: 50%
+	cursor: pointer
+	left: 0px
+	transition: border 0.5s ease-out 0.5s, left 0.5s linear
+	background-color: transparent
+	z-index: $menu_zindex
+	&::after
+		::after
+		content: 'Меню'
+		display: block
+		position: relative
+		left: 2.5rem
+		top: 50%
+		transform: translateY(-50%)
+		margin-left: 0.5em
+		font-family: $ff_bold
+		opacity: 1
+		transition: opacity 0.5s ease-in-out 0.5s
+		cursor: pointer
+
+.button_menu
+	display: block
+	position: absolute
+	height: $burger_width
+	width: 50%
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	background-color: $burger_color
+	transition: background-color 0.25s ease-out 0.5s
+	&::before,
+	&::after
+		content: ''
+		display: block
+		position: relative
+		height: $burger_width
+		width: 100%
+		left: 50%
+		transform: translate(-50%, -50%)
+		background-color: $burger_color
+		transition: transform 0.5s ease-in-out, top 0.5s ease-in-out 0.5s, background-color 0.5s ease-in-out 0.5s
+	&::before
+		top: -0.5em
+	&::after
+		top: 0.5em
+
+body.menu_open #toggle_menu
+	border:  $burger_width solid #ffffff
+	transition: border 0.5s ease-out 0.5s, left 0.5s linear 0.5s
+	left: -$menu_width
+	&::after
+		opacity: 0
+		transition: opacity 0.5s ease-in-out
+
+body.menu_open #toggle_menu	> span
+	background-color: transparent
+	&::before,
+	&::after
+		background-color: #ffffff
+		transition: transform 0.5s ease-in-out 0.5s, top 0.5s ease-in-out, background-color 0.5s ease-in-out 0.5s
+	&::before
+		top: $burger_width/2
+		transform: translate(-50%, -50%) rotate(45deg) scale(1.2)
+	&::after
+		top: -$burger_width/2
+		transform: translate(-50%, -50%) rotate(-45deg) scale(1.2)
+
+body.menu_open .container
+	left: $menu_width
+	transition: left 0.5s linear 0.5s

@@ -1,0 +1,211 @@
+@import "bourbon"
+@import "vars.sass"
+@import "sprite.sass"
+
+.training .card
+	position: relative
+	box-sizing: border-box
+	padding: 1.5rem 4rem 1rem
+	margin-bottom: 1.85rem
+	max-height: 32rem
+	min-width: calc(33.33% - (2 * 1.75rem / 3) )
+	flex-basis: calc(33.33% - (2 * 1.75rem / 3) )
+
+.training .card.attestation
+	padding-left: 2rem
+	padding-right: 2rem
+
+.training .card.history
+	padding-right: 2rem
+
+.training .card:not(:nth-child(3n))
+	margin-right: 1.75rem
+
+.training .card:nth-child(3n)
+	margin-right: 0
+
+.training .card .card-block
+	display: flex
+	flex-direction: column
+	min-height: 100%
+
+.training .card .card-block .card-header
+	flex: 0 0 auto
+
+.training .card .card-block .card-content
+	flex: 1 1 auto
+
+.training .card .card-block .card-footer
+	flex: 0 0 auto
+	justify-self:  flex-end
+
+.history h2,
+.teach_module .card-header h2,
+.teach_module .card-header p,
+.teach_module .card-footer,
+.teach_module .attestation_result
+	text-align: center
+	padding: 0
+	margin: 0
+
+.history h2,
+.teach_module .card-header h2
+	font-family: $ff_bold
+	font-size: 1.75rem
+	line-height: 1.4
+
+.history .card-header
+	h2
+		margin-bottom: 0.5rem
+	label
+		font-family: $ff_bold
+		cursor: pointer
+		#history_date
+			width: 11.5rem
+			min-height: 2.25rem
+			margin-left: 1rem
+			margin-right: 1rem
+			text-align: center
+			color: $color_accent
+			border: 2px solid $color_main
+			border-radius: 0.35rem
+		.button_input_date
+			display: inline-block
+			vertical-align: middle
+			background-image: url(../img/icons.png)
+			background-repeat: no-repeat
+			width: $calendar-width
+			height: $calendar-height
+			background-position: $calendar-offset-x $calendar-offset-y
+
+.history .card-content
+		overflow-y: scroll
+		-webkit-overflow-scrolling: touch
+		margin-top: 1rem
+		margin-bottom: 1rem
+
+.teach_module .card-content
+	min-height: 0
+	position: relative
+	overflow-y: hidden
+	&::after
+		content: ''
+		display: block
+		position: absolute
+		bottom: 0
+		margin-bottom: -1rem
+		width: 100%
+		height: 3.5rem
+		background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))
+
+.teach_module.attestation .card-content::after
+	display: none
+
+.history .history_items
+	list-style: none
+	padding: 0
+	margin: 0
+
+.history_items
+	li
+		position: relative
+		line-height: 1.6
+		&::after
+			content: ''
+			position: absolute
+			right: 0
+			margin-right: 1.75rem
+			background-image: url(../img/icons.png)
+			background-repeat: no-repeat
+			width: $mark-cross-width
+			height: $mark-cross-height
+			background-position: $mark-cross-offset-x $mark-cross-offset-y
+	li.passed
+		&::after
+			width: $mark-check-width
+			height: $mark-check-height
+			background-position: $mark-check-offset-x $mark-check-offset-y		
+
+.history_items
+	a
+		text-decoration: none
+		color: $color_main
+		transition: color 0.4s linear
+		&:hover
+			color: $color_accent
+			transition: all 0s
+			text-decoration: underline
+
+.history .card-header label
+	width: 17rem
+
+.teach_module .result_testing
+	font-family: $ff_roman
+	font-size: 1.25rem
+	line-height: 1.25
+	color: $color_red
+
+.teach_module.passed .result_testing
+	color: $color_green
+
+.teach_module .duration_access
+	color: $color_accent
+
+.teach_module .card-content
+	padding: 1rem 0
+	p
+		padding: 0
+		margin: 0
+
+.teach_module .card-footer
+	a.teach_link
+		font-family: $ff_roman
+		color: $color_light_blue
+		text-decoration: underline
+		cursor: pointer
+		&:hover
+			color: $color_accent
+			text-shadow: 1px 1px 1px rgba(200, 89, 70, 0.7)
+	a.button		
+		margin-top: 1em
+		margin-bottom: 2em
+		color: $color_white
+
+.teach_module .attestation_result
+	font-family: $ff_bold
+	font-size: 1.25rem
+	padding-top: 1.5em
+	.evaluation
+		font-size: 4rem
+		span
+			color: $color_light_blue
+
+.teach_module
+	.attestation_result,
+	.success
+		display: none
+
+.attestation.passed
+	.attestation_result,
+	.success
+		display: block
+	.dislike
+		display: none
+
+.attestation .card-content img
+	position: relative
+	left: 50%
+	transform: translateX(-50%)
+	&.dislike
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+.attestation.passed .card-footer
+	a.teach_link
+		color: #c0c0c0
+		pointer-events: none
+	a.button		
+		background-color: #c0c0c0
+		pointer-events: none
+

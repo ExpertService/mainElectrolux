@@ -1,0 +1,48 @@
+@import "../vars.sass"
+@import "../sprite.sass"
+
+header
+	position: relative
+	height: 2.5rem
+	margin-top: 2rem
+	margin-bottom: 2.5rem
+
+.header_logo
+	display: block
+	position: absolute
+	top: 0%
+	left: 50%
+	transform: translate(-50%)
+	width:  14.5rem
+	height: 3.5rem
+	margin: 0 auto
+
+.button_logout
+	display: block
+	position: absolute
+	height: 100%
+	padding: 0
+	margin: 0
+	cursor: pointer
+	top: 0
+	right: 0
+	font-family: $ff_bold
+	text-decoration: none
+	color: $color_main
+	&::after
+		content: ''
+		display: inline-block
+		position: relative
+		height: 100%
+		top: 50%
+		margin-left: 10px
+		transform: translateY(-50%)
+		background-image: url(../img/icons.png)
+		background-repeat: no-repeat
+
+.icon_logout::after
+	width: $logout-width
+	height: $logout-height
+	background-position: $logout-offset-x $logout-offset-y
+
+@import "../components/_menu_push_left.sass"

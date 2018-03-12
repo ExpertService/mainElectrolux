@@ -1,0 +1,29 @@
+{
+  "name": "cleanTemplate",
+  "version": "1.0.0",
+  "description": "clean html,css template",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "air-datepicker": "^2.2.3",
+    "jquery": "^3.3.1",
+    "jquery.scrollbar": "^0.2.11"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.5",
+    "dev-ip": "^1.0.1",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp.spritesmith": "^6.9.0",
+    "node-bourbon": "^4.2.8",
+    "normalize.css": "^7.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
